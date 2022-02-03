@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   gsheets: ^0.3.2
   flutter_custom_clippers: ^2.0.0
+  get: ^3.26.0
 
 dev_dependencies:
   flutter_test:

@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:kamusjaksel/style/custom.theme.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:kamusjaksel/view/new.word/custom/word.card.dart';
+import 'package:kamusjaksel/style/custom.theme.dart';
 
-class NewWord extends StatelessWidget {
-  NewWord({Key key}) : super(key: key);
+class HeaderWidget extends StatelessWidget {
+  final String title;
+  final String subTitle;
+  final String imageAsset;
+  final Color menuColor;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Theme.of(context).defaultColorContainer,
-        child: Stack(children: [
-          MyWidget(), 
-          WordPageView()
-        ]),
-      ),
-    );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  MyWidget({Key key}) : super(key: key);
+  HeaderWidget({
+    this.title,
+    this.subTitle,
+    this.imageAsset,
+    this.menuColor,
+    Key key}) : super(key: key);
 
   final double _defaultHeight = 240;
 
@@ -41,17 +33,17 @@ class MyWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/home.png'),
+                    Image.asset(imageAsset),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Kata",
+                        Text("$title",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: Theme.of(context).textMedium16,
                                 color: Theme.of(context).defaultSecondText)),
-                        Text("Terbaru",
+                        Text("$subTitle",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: Theme.of(context).textMedium24,
@@ -66,7 +58,7 @@ class MyWidget extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0)),
-                color: Theme.of(context).colorHome,
+                color: menuColor,
               ),
             ),
           )

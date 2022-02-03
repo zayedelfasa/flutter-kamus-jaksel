@@ -21,7 +21,17 @@ extension customTheme on ThemeData {
 
   Color get colorHome => Colors.pink[600];
 
+  Color get colorDictionary => Colors.green[500];
+
+  Color get colorFavorite => Colors.amber[400];
+
+  Color get colorAbout => Colors.lightBlue[400];
+
   Color get defaultText => const Color(0xff333333);
+
+  Color get defaultTitle => Colors.grey[600];
+
+  Color get defaultSubTitle => Colors.grey[800];
 
   Color get defaultColorContainer => Colors.white;
   
@@ -41,9 +51,9 @@ extension customTheme on ThemeData {
 
   double get minimumHeight => 32.0;
 
-  double get defaultRoundedCorner => 10.0;
+  double get defaultRoundedCorner => 4.0;
 
-  
+  double get defaultElevation => 1.0;  
 }
 
 class CustomThemeData {

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'custom.theme.dart';
+import 'package:kamusjaksel/style/custom.theme.dart';
 
 class BottomTextStyle {
   BuildContext context;
+  bool isActive;
+  Color color;
 
-  BottomTextStyle(this.context);
+  BottomTextStyle(this.context, this.isActive, this.color);
 
   get textStyle => TextStyle(
-    fontSize: Theme.of(context).textMedium10
+    fontSize: Theme.of(context).textMedium10,
+    color: isActive ? this.color : Theme.of(context).defaultText
   );
 }
 
@@ -18,7 +22,7 @@ class WordTitleTextStyle {
 
   get textStyle => TextStyle(
     fontWeight: FontWeight.bold,
-    color: Colors.grey[600],
+    color: Theme.of(context).defaultTitle,
     fontSize: Theme.of(context).textMedium24
   );
 }
@@ -29,7 +33,7 @@ class WordSubTitleTextStyle {
   WordSubTitleTextStyle(this.context);
 
   get textStyle => TextStyle(
-    color: Colors.grey[800],
+    color: Theme.of(context).defaultSubTitle,
     fontSize: Theme.of(context).textMedium12
   );
 }
@@ -40,8 +44,20 @@ class WordOtherSample {
   WordOtherSample(this.context);
 
   get textStyle => TextStyle(
-    color: Colors.grey[800],
+    color: Theme.of(context).defaultSubTitle,
     fontWeight: FontWeight.bold,
     fontSize: Theme.of(context).textMedium12
+  );
+}
+
+class WordKamus {
+  BuildContext context;
+
+  WordKamus(this.context);
+
+  get textStyle => TextStyle(
+    fontWeight: FontWeight.bold,
+    color: Theme.of(context).defaultTitle,
+    fontSize: Theme.of(context).textMedium16
   );
 }
