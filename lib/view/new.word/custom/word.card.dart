@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kamusjaksel/custom.widget/custom.card.word.dart';
-import 'package:kamusjaksel/style/bottom.text.style.dart';
+import 'package:kamusjaksel/style/all.text.style.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 
 class WordPageView extends StatefulWidget {

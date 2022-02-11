@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kamusjaksel/custom.widget/header.widget.dart';
-import 'package:kamusjaksel/style/bottom.text.style.dart';
+import 'package:kamusjaksel/style/all.text.style.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 import 'package:kamusjaksel/view/dictionary/custom.dialog.dictionary.dart';
 
