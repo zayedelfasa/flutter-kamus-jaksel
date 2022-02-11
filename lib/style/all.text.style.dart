@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'custom.theme.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 
-class BottomTextStyle {
+class AllTextStyle {
   BuildContext context;
   bool isActive;
   Color color;
 
-  BottomTextStyle(this.context, this.isActive, this.color);
+  AllTextStyle(this.context, this.isActive, this.color);
 
   get textStyle => TextStyle(
     fontSize: Theme.of(context).textMedium10,

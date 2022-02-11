@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kamusjaksel/style/bottom.text.style.dart';
+import 'package:kamusjaksel/style/all.text.style.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 
 class CustomCardWord extends StatelessWidget {
@@ -76,6 +76,11 @@ class CustomCardWord extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius:
+                BorderRadius.circular(Theme.of(context).defaultRoundedCorner),
+              ),
+              elevation: Theme.of(context).defaultElevation,
               margin: EdgeInsets.only(top : 20.0, left: _defaultPaddingHorizontal + 4, right: _defaultPaddingHorizontal + 4),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

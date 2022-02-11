@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kamusjaksel/style/bottom.text.style.dart';
+import 'package:kamusjaksel/style/all.text.style.dart';
 
 class ViewTab extends StatelessWidget {
   final String imageAssets;
@@ -32,7 +32,7 @@ class ViewTab extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 2.0),
-              child: Text("$title", style: BottomTextStyle(context, isActive, color).textStyle),
+              child: Text("$title", style: AllTextStyle(context, isActive, color).textStyle),
             )
           ], 
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kamusjaksel/custom.widget/view.tab.dart';
+import 'package:kamusjaksel/view/about/about.dart';
 import 'package:kamusjaksel/view/dictionary/dictionary.dart';
 import 'package:kamusjaksel/view/home/controller/controller.main.dart';
 import 'package:kamusjaksel/view/new.word/new.word.dart';
@@ -24,18 +25,21 @@ class _MainState extends State<Main> {
       builder: (ControllerMain c) {
         return Scaffold(
             body: _tab[c.selectedIndex],
-            bottomNavigationBar: Container(
-              color: Colors.white,
-              height: _defaultHeightBottomTabBar,
-              child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 4.0),
-                child: Container(
-                  color: Colors.white,
-                  // elevation: Theme.of(context).defaultElevation,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: _bottomTabList(c),
+            bottomNavigationBar: Material(
+              elevation: 10,
+              child: Container(
+                color: Colors.white,
+                height: _defaultHeightBottomTabBar,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 4.0),
+                  child: Container(
+                    color: Colors.white,
+                    // elevation: Theme.of(context).defaultElevation,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: _bottomTabList(c),
+                    ),
                   ),
                 ),
               ),
@@ -48,7 +52,7 @@ class _MainState extends State<Main> {
         NewWord(), // 0
         Dictionary(), // 1
         // Container(), // 2
-        Container() // 3
+        AboutView() // 3
       ];
 
   _bottomTabList(ControllerMain c) {
