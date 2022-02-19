@@ -50,8 +50,8 @@ class _MainState extends State<Main> {
 
   List<Widget> get _tab => <Widget>[
         NewWord(), // 0
-        Dictionary(), // 1
-        // Container(), // 2
+        DictionaryView(), // 1
+        Container(), // 2
         AboutView() // 3
       ];
 
@@ -75,19 +75,19 @@ class _MainState extends State<Main> {
         imageAssets: 'assets/bottom.icon.tab/story.telling.png',
         color: Theme.of(context).colorDictionary,
       ),
-      // ViewTab(
-      //   isActive: c.selectedIndex == 2 ? true : false,
-      //   onPressed: () {
-      //     c.setSelectedIndex(2);
-      //   },
-      //   title: 'Favorit',
-      //   imageAssets: 'assets/bottom.icon.tab/product.development.png',
-      //   color: Theme.of(context).colorFavorite,
-      // ),
       ViewTab(
         isActive: c.selectedIndex == 2 ? true : false,
         onPressed: () {
           c.setSelectedIndex(2);
+        },
+        title: 'Favorit',
+        imageAssets: 'assets/bottom.icon.tab/product.development.png',
+        color: Theme.of(context).colorFavorite,
+      ),
+      ViewTab(
+        isActive: c.selectedIndex == 3 ? true : false,
+        onPressed: () {
+          c.setSelectedIndex(3);
         },
         title: 'Tentang',
         imageAssets: 'assets/bottom.icon.tab/idea.png',

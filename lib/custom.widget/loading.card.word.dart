@@ -3,7 +3,10 @@ import 'package:kamusjaksel/style/custom.theme.dart';
 
 class LoadingCardWord extends StatelessWidget {
 
-  LoadingCardWord({Key key})
+  @required
+  Color loadingColor;
+
+  LoadingCardWord({Key key, this.loadingColor})
       : super(key: key);
 
   @override
@@ -32,7 +35,7 @@ class LoadingCardWord extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: CircularProgressIndicator(
-                            backgroundColor: Theme.of(context).colorHome,
+                            backgroundColor: loadingColor,
                           ),
                         ),
                       )

@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kamusjaksel/config/state.loading.dart';
 import 'package:kamusjaksel/models/new.word.dart';
-import 'package:kamusjaksel/service/repository/repo.new.word.dart';
+import 'package:kamusjaksel/service/repository/repository.dart';
 
 class ControllerNewWorld extends GetxController {
 
   static ControllerNewWorld _instance = ControllerNewWorld();
 
-  final RepositoryNewWord _repositoryNewWord = Get.put(RepositoryNewWord.instance);
+  final _repositoryNewWord = Get.put<Repository>(Repository.instance);
 
   var _newWord = NewWord();
   LoadingState _loadingState;

@@ -5,6 +5,7 @@ import 'package:kamusjaksel/custom.widget/custom.card.word.dart';
 import 'package:kamusjaksel/custom.widget/loading.card.word.dart';
 import 'package:kamusjaksel/models/new.word.dart';
 import 'package:kamusjaksel/view/new.word/controller/controller.new.word.dart';
+import 'package:kamusjaksel/style/custom.theme.dart';
 
 class WordPageView extends StatefulWidget {
   const WordPageView({Key key}) : super(key: key);
@@ -39,13 +40,11 @@ class _WordPageViewState extends State<WordPageView> {
               return Container();
               break;
             case LoadingState.isLoading:
-              return PageView(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: _defaultTopContainer),
-                    child: LoadingCardWord(),
-                  )
-                ],
+              return Container(
+                margin: EdgeInsets.only(top: _defaultTopContainer),
+                child: LoadingCardWord(
+                  loadingColor: Theme.of(context).colorHome,
+                ),
               );
               break;
             case LoadingState.isDone:
