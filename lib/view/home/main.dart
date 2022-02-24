@@ -1,14 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kamusjaksel/custom.widget/view.tab.dart';
 import 'package:kamusjaksel/view/about/about.dart';
-import 'package:kamusjaksel/view/dictionary/dictionary.dart';
+import 'package:kamusjaksel/view/dictionary/dictionary.view.dart';
 import 'package:kamusjaksel/view/home/controller/controller.main.dart';
-import 'package:kamusjaksel/view/new.word/new.word.dart';
+import 'package:kamusjaksel/view/new.word/navigator.new.word.dart';
+import 'package:kamusjaksel/view/new.word/new.word.view.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 
 class Main extends StatefulWidget {
-  const Main({Key key}) : super(key: key);
+  Main({Key key}) : super(key: key);
 
   @override
   _MainState createState() => _MainState();
@@ -16,7 +18,15 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   final double _defaultHeightBottomTabBar = 52.0;
-  final _controllerMain = Get.put(ControllerMain());
+  final _controllerMain = Get.put<ControllerMain>(ControllerMain.instance);
+  Map<int, GlobalKey<NavigatorState>> _navigationKeys = {
+    0 : GlobalKey<NavigatorState>(),
+    1 : GlobalKey<NavigatorState>(),
+    2 : GlobalKey<NavigatorState>(),
+    3 : GlobalKey<NavigatorState>()
+  };
+  // final _navigatorKey = GlobalKey<NavigatorState>();
+  final PageStorageBucket _bucket = PageStorageBucket();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +34,13 @@ class _MainState extends State<Main> {
       init: _controllerMain,
       builder: (ControllerMain c) {
         return Scaffold(
-            body: _tab[c.selectedIndex],
+            body: PageStorage(
+              child:  IndexedStack(
+                children: _tab,
+                index: c.selectedIndex,
+              ),
+              bucket: _bucket,
+            ),
             bottomNavigationBar: Material(
               elevation: 10,
               child: Container(
@@ -43,16 +59,21 @@ class _MainState extends State<Main> {
                   ),
                 ),
               ),
-            ));
+            )
+        );
       },
     );
   }
 
   List<Widget> get _tab => <Widget>[
-        NewWord(), // 0
-        DictionaryView(), // 1
-        Container(), // 2
-        AboutView() // 3
+        NavigatorNewWord(
+        ), // 0
+        DictionaryView(
+        ), // 1
+        Container(
+        ), // 2
+        AboutView(
+        ) // 3
       ];
 
   _bottomTabList(ControllerMain c) {

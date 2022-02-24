@@ -3,8 +3,10 @@ import 'package:kamusjaksel/style/custom.theme.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:kamusjaksel/view/new.word/word.card.dart';
 
-class NewWord extends StatelessWidget {
-  NewWord({Key key}) : super(key: key);
+class NewWordView extends StatelessWidget {
+  NewWordView({Key key}) : super(key: key);
+
+  static String routeName = "/newWord";
 
   @override
   Widget build(BuildContext context) {

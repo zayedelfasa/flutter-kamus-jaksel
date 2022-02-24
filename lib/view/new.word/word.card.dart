@@ -6,9 +6,10 @@ import 'package:kamusjaksel/custom.widget/loading.card.word.dart';
 import 'package:kamusjaksel/models/new.word.dart';
 import 'package:kamusjaksel/view/new.word/controller/controller.new.word.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
+import 'package:kamusjaksel/view/new.word/navigator.new.word.dart';
 
 class WordPageView extends StatefulWidget {
-  const WordPageView({Key key}) : super(key: key);
+  WordPageView({Key key}) : super(key: key);
 
   @override
   _WordPageViewState createState() => _WordPageViewState();
@@ -17,8 +18,7 @@ class WordPageView extends StatefulWidget {
 class _WordPageViewState extends State<WordPageView> {
   final PageController _pageController = PageController(initialPage: 0);
   final double _defaultTopContainer = 50.0;
-  final ControllerNewWorld _controllerNewWorld =
-      Get.put(ControllerNewWorld.instance);
+  final ControllerNewWorld _controllerNewWorld = Get.put(ControllerNewWorld.instance);
 
   @override
   void dispose() {
@@ -56,6 +56,11 @@ class _WordPageViewState extends State<WordPageView> {
                     return Container(
                       margin: EdgeInsets.only(top: _defaultTopContainer),
                       child: CustomCardWord(
+                        onTap: () {
+                          // Kalau Pakai Material Navigator
+                          // Navigator.pushNamed(context, "/fakeRoute");
+                          Get.toNamed("/fakeRoute", id: GetHelperNewWordNavigator.id);
+                        },
                         titleText: "${newWord.kataBaru[index].kata}",
                         subTitleText:
                             "${newWord.kataBaru[index].deskripsiKata}",

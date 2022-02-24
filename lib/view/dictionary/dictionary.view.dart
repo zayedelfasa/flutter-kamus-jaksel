@@ -10,7 +10,8 @@ import 'package:kamusjaksel/view/dictionary/controller/controller.dictionary.dar
 import 'package:kamusjaksel/view/dictionary/custom.dialog.dictionary.dart';
 
 class DictionaryView extends StatelessWidget {
-  DictionaryView({Key key}) : super(key: key);
+  DictionaryView({Key key, this.navigatorKey}) : super(key: key);
+  final GlobalKey<NavigatorState> navigatorKey;
   final _controllerDictionary =
       Get.put<ControllerDictionary>(ControllerDictionary.instance);
   final double _defaultTopContainer = 50.0;
@@ -57,7 +58,7 @@ class DictionaryView extends StatelessWidget {
                               child: _cardWord(
                                   title: '${_d.records[i].kata}',
                                   subTitle: '${_d.records[i].deskripsiKata}',
-                                  isFavoriteByAuthor: true,
+                                  isFavoriteByAuthor: _d.records[i].isFavorite,
                                   onTap: () {
                                     showDialog(
                                         context: context,
@@ -113,15 +114,19 @@ class DictionaryView extends StatelessWidget {
             ),
           ),
           subtitle: Padding(
-            padding: const EdgeInsets.only(bottom : 4.0),
+            padding: const EdgeInsets.only(bottom: 4.0),
             child: Text(
               subTitle,
               style: WordSubTitleTextStyle(context).textStyle,
             ),
           ),
           trailing: isFavoriteByAuthor == true
-              ? InkWell(child: Icon(Icons.favorite, color: Colors.redAccent), onTap: onTapFavorite)
-              : InkWell(child: Icon(Icons.favorite, color: Colors.white70), onTap: onTapUnfavorite),
+              ? InkWell(
+                  child: Icon(Icons.favorite, color: Colors.redAccent),
+                  onTap: onTapFavorite)
+              : InkWell(
+                  child: Icon(Icons.favorite, color: Colors.grey),
+                  onTap: onTapUnfavorite),
         ),
       ),
     );

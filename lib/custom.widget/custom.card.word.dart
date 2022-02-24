@@ -7,8 +7,9 @@ class CustomCardWord extends StatelessWidget {
   final subTitleText;
   final sampleText;
   final _defaultPaddingHorizontal = 12.0;
+  Function onTap;
 
-  CustomCardWord({this.titleText, this.subTitleText, this.sampleText, Key key})
+  CustomCardWord({ Key key, this.titleText, this.subTitleText, this.sampleText, this.onTap})
       : super(key: key);
 
   @override
@@ -75,37 +76,40 @@ class CustomCardWord extends StatelessWidget {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.circular(Theme.of(context).defaultRoundedCorner),
-              ),
-              elevation: Theme.of(context).defaultElevation,
-              margin: EdgeInsets.only(top : 20.0, left: _defaultPaddingHorizontal + 4, right: _defaultPaddingHorizontal + 4),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top : 8.0, left: _defaultPaddingHorizontal),
-                    child: Text("Contoh lainnya : ", style: WordOtherSample(context).textStyle),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: _defaultPaddingHorizontal, bottom: 8.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 4.0),
-                          child: Image.asset("assets/images/twitter.png", width: 34, height: 34.0),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right : 4.0),
-                          child: Image.asset("assets/images/google.png", width: 24, height: 24),
-                        )
-                      ],
+            child: InkWell(
+              onTap: onTap,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                  BorderRadius.circular(Theme.of(context).defaultRoundedCorner),
+                ),
+                elevation: Theme.of(context).defaultElevation,
+                margin: EdgeInsets.only(top : 20.0, left: _defaultPaddingHorizontal + 4, right: _defaultPaddingHorizontal + 4),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top : 8.0, left: _defaultPaddingHorizontal),
+                      child: Text("Contoh lainnya : ", style: WordOtherSample(context).textStyle),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(left: _defaultPaddingHorizontal, bottom: 8.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 4.0),
+                            child: Image.asset("assets/images/twitter.png", width: 34, height: 34.0),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right : 4.0),
+                            child: Image.asset("assets/images/google.png", width: 24, height: 24),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

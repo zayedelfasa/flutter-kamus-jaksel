@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kamusjaksel/style/custom.theme.dart';
 import 'package:kamusjaksel/view/home/Main.dart';
 
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       home: Main(),
       theme: CustomThemeData(context).themeData,
     );
